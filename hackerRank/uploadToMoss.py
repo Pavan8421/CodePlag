@@ -4,13 +4,13 @@ import re
 import requests
 from bs4 import BeautifulSoup
 
-def submit_to_moss(files, language="c"):
+def submit_to_moss(file_paths, language="c"):
     # Create the base command
     moss_command = f"perl moss.pl -l {language} "
     
     # Add each file to the command
-    for file in files:
-        moss_command += f" {file}"
+    for path in file_paths:
+        moss_command += f" '{path}'"
     
     # Execute the command
     result = subprocess.run(moss_command, shell=True, capture_output=True, text=True)

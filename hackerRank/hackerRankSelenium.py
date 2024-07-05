@@ -78,36 +78,36 @@ class HackerRankSession:
         for item in submission_items:
             # Extract the problem name
             problem_name = item.find_element(By.XPATH, './/div[@class="span2 submissions-title"]/p/a').text
-            print('Problem Name:', problem_name)
+            #print('Problem Name:', problem_name)
             
             # Extract the username
             username = item.find_element(By.XPATH, './/div[@class="span2 submissions-title"][2]/p/a').text
-            print('Username:', username)
+            #print('Username:', username)
             
             # Extract the submission ID
             submission_id = item.find_element(By.XPATH, './/div[@class="span1 submissions-title"]/p').text
-            print('Submission Id:', submission_id)
+            #print('Submission Id:', submission_id)
             
             # Extract the language used
             language = item.find_element(By.XPATH, './/div[@class="span2 submissions-title"]/p[@class="small"]').text
-            print('Language:', language)
+            #print('Language:', language)
             
             # Extract the status
             status_element = item.find_element(By.XPATH, './/div[@class="span3 submissions-title"]/p[contains(@class, "small")]')
             status = status_element.text.strip()
-            print('Status:', status)
+            #print('Status:', status)
             
             # Extract the score percentage
             score_percentage = item.find_element(By.XPATH, './/div[@class="span1 submissions-title"][2]/p[@class="small"]').text
-            print('Score Percentage:', score_percentage)
+            #print('Score Percentage:', score_percentage)
             
             # Extract the 'Yes/No' status
             yes_no_status = item.find_element(By.XPATH, './/div[@class="span1 submissions-title"][4]/p[@class="small"]').text
-            print('Yes/No Status:', yes_no_status)
+            #print('Yes/No Status:', yes_no_status)
             
             # Extract the 'View' link
             view_link = item.find_element(By.XPATH, './/div[@class="span1"]/p[@class="btn-wrap"]/a').get_attribute('href')
-            print('View Link:', view_link)
+            #print('View Link:', view_link)
 
             if yes_no_status == "Yes":
               submission = Submissions.objects.create(problemName = str(problem_name),username = str(username),submissionId = int(submission_id),lang = str(language),srcLink = str(view_link))
