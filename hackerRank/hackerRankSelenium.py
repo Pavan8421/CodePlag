@@ -9,8 +9,8 @@ from hackerRank.models import Submissions
 path = "F:\Downloads\chromedriver-win64 (1)\chromedriver-win64\chromedriver.exe"
 
 
-username = "pavankumarvaranasi2004@gmail.com"
-password = "Pavan222"
+#username = "pavankumarvaranasi2004@gmail.com"
+#password = "Pavan222"
 
 
 class HackerRankSession:

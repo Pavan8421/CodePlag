@@ -15,5 +15,7 @@ class Results(models.Model):
   problemName = models.CharField(max_length=255,null=False,blank=False)
   username1 = models.CharField(max_length=150,null=False,blank=False)
   username2 = models.CharField(max_length=150,null=False,blank=False)
+  submissionId1 = models.CharField(max_length=50,null=False,default="0")
+  submissionId2 = models.CharField(max_length=50,null=False,default="0")
   lang = models.CharField(max_length=100,null=False,blank=False)
-  matchPercentage = models.IntegerField()
+  matchPercentage = models.FloatField()
