@@ -6,7 +6,7 @@ from time import sleep
 
 from hackerRank.models import Submissions
 
-path = "F:\Downloads\chromedriver-win64 (1)\chromedriver-win64\chromedriver.exe"
+path = "F:\Downloads\chromedriver-win64 (2)\chromedriver-win64\chromedriver.exe"
 
 
 #username = "pavankumarvaranasi2004@gmail.com"
@@ -23,7 +23,7 @@ class HackerRankSession:
 
   def __init__(self,username,password):
     self.browser.get("https://www.hackerrank.com/auth/login")
-    sleep(5)
+    sleep(10)
     username_input = self.browser.find_element(By.XPATH, "//input[@name='username']")
     password_input = self.browser.find_element(By.XPATH,"//input[@name='password']")
     username_input.send_keys(username)

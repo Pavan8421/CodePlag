@@ -56,7 +56,7 @@ ROOT_URLCONF = 'CodePlag.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["E:\projects\CodePlag\hackerRank\static"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

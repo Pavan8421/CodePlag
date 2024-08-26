@@ -14,15 +14,19 @@ model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
 # Create your views here.
 
 def index(request):
+  return render(request, 'index.html')
+
+
+def submit(request):
   if request.method == 'POST':
     username = request.POST.get('username')
     password = request.POST.get('password')
     contest_slug = request.POST.get('contest_slug')
     hacker = HackerRankSession(username,password)
     hacker.fetch_data(f"contests/{contest_slug}/judge/submissions")
-    load_data(username,password)
+    load_data(username,password, hacker)
     data = Results.objects.all().order_by('-matchPercentage')
-    return render(request,'index.html')
+    return render(request, 'index.html')
   return HttpResponse("Hello world")
 
 
@@ -33,8 +37,8 @@ def generate_combinations(probName, values_list):
     comb = list(combinations(rows, 2))
     return comb
 
-def load_data(username,password):
-  hacker = HackerRankSession(username,password)
+def load_data(username,password, hacker):
+  #hacker = HackerRankSession(username,password)
   unique_problems = list(Submissions.objects.values_list('problemName',flat=True).distinct())
   print(unique_problems)
   for prob in unique_problems:
